@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Note.create(title: "Learn JavaScript", body: "It's all the rage.")
+Note.create(title: "Learn AJAX", body: "Asynchronous JavaScript and XML with JSON.")
