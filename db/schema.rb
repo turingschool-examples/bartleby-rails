@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141126070324) do
+ActiveRecord::Schema.define(version: 20150406015944) do
 
   create_table "notes", force: true do |t|
     t.string   "title"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "complete",   default: false, null: false
   end
 
 end

@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  resources :notes, defaults: { format: 'json' }, path: 'api/notes'
+  namespace "api" do
+    resources :notes, defaults: { format: "json" }
+  end
+
+  resources :notes
+  get "/dashboard", to: "dashboard#index"
 end

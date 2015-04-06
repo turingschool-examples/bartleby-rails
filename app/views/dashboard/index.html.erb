@@ -1,0 +1,39 @@
+<heading>
+  <h1>Notes</h1>
+</heading>
+
+<section id="new-idea">
+  <h2>Add a New Note</h2>
+  <%= form_for(Note.new) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder: "Title", class: "new-idea-title" %>
+    <%= f.label :body %>
+    <%= f.text_field :body, placeholder: "Body", class: "new-idea-body" %>
+    <%= f.submit %>
+  <% end %>
+  <a href="#" onclick="$('.container').parent().css('background-color', '#333')">night mode</a>
+</section>
+
+  <section id="ideas">
+    <% @notes.each do |note|%>
+      <div class="idea <%= note.complete? ? "completed-note" : "" %>">
+        <h2><%= note.title %></h2>
+        <p><%= note.body %></p>
+        <%= link_to "Mark as Complete", "#", data: { complete: note.complete?, :'id-thing' => note.id } %>
+      </div>
+    <% end %>
+  </section>
+
+<script>
+  $(document).ready(function () {
+    $('[data-complete]').click(function () {
+      if ( $(this).data('complete')) {
+        $(this).parent().removeClass('completed-note');
+        $(this).data('complete', false);
+      } else {
+        $(this).parent().addClass('completed-note');
+        $(this).data('complete', true);
+      }
+    });
+  });
+</script>
